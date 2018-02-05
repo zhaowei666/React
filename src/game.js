@@ -2,6 +2,9 @@ import React from 'react';
 import './index.css';
 
 class Game extends React.Component{
+  componentWillMount() {
+    document.title = 'Tic-tac-toe from Zhaowei'
+  };
   constructor(props) {
     super(props);
     this.state = {
@@ -116,6 +119,31 @@ class Board extends React.Component {
     );
   }
 }
+
+/* TODO
+class PlayerForm extends React.component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      playerX: null,
+      playerO: null
+    }
+  }
+  render() {
+    const playerX = this.state.playerX;
+    const playerO = this.state.playerX;
+    return (
+      <div>
+        <p>Player1 (X)</p>
+        <input type='text' id='playerX' value={playerX} />
+        <p>Player2 (O)</p>
+        <input type='text' id='playerY' value={playerO} />
+      </div>
+    );
+  };
+}
+*/
+
 
 function calculateWinner(squares) {
   const lines = [

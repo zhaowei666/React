@@ -9,6 +9,9 @@ const history = createHistory();
 
 
 class Hello extends React.Component {
+    componentWillMount() {
+        document.title = "Zhaowei's front end"
+    };
     render() {
         return (
             <h1>Hello World</h1>
