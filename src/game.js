@@ -64,12 +64,12 @@ class Game extends React.Component{
       <div>
         <MyHeader />
         <div class="row container mt-4">
-          <div class="col-3">
+          <div class="col-sm-5">
             <h4>Steps</h4>
             <div>{status}</div>
             <ol>{moves}</ol>
           </div>
-          <div class="col-5">
+          <div class="col-sm-7">
             <h4 clss="align-center">Game Board</h4>
             <Board
               squares = {current.squares}
