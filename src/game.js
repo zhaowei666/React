@@ -64,7 +64,6 @@ class Game extends React.Component{
       <div>
         <MyHeader />
         <div class="row container mt-4">
-          <div class="col-2" />
           <div class="col-4">
             <h4>Steps</h4>
             <div>{status}</div>
