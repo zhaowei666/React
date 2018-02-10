@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css';
+import {MyHeader} from "./base"
 
 class Game extends React.Component{
   componentWillMount() {
@@ -60,16 +61,22 @@ class Game extends React.Component{
       status = 'Next player is ' + (this.state.xIsNext ? 'X' : 'O');
     }
     return (
-      <div className="game">
-        <div className="game-board">
-          <Board
-            squares = {current.squares}
-            onClick = {(i) => this.handleClick(i)}
-          />
-        </div>
-        <div className="game-info">
-          <div>{status}</div>
-          <ol>{moves}</ol>
+      <div>
+        <MyHeader />
+        <div class="row container mt-4">
+          <div class="col-2" />
+          <div class="col-4">
+            <h4>Steps</h4>
+            <div>{status}</div>
+            <ol>{moves}</ol>
+          </div>
+          <div class="col-4">
+            <h4 clss="align-center">Game Board</h4>
+            <Board
+              squares = {current.squares}
+              onClick = {(i) => this.handleClick(i)}
+            />
+          </div>
         </div>
       </div>
     );

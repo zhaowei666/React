@@ -1,5 +1,6 @@
 import React from 'react'
-
+import 'bootstrap/dist/css/bootstrap.css';
+import {MyHeader} from "./base";
 
 class MovieQuotes extends React.Component{
   componentWillMount() {
@@ -47,18 +48,30 @@ class MovieQuotes extends React.Component{
       const movieInfo = '----' + quote['name'] + '(' + quote['year'] + ')';
       return (
         <div>
-          <div>{quote['text']}</div>
-          <div>{movieInfo}</div>
+          <div class="bg-light text-dark mt-4">{quote['text']}</div>
+          <div class="bg-dark text-light mt-2">{movieInfo}</div>
         </div>
         )
     });
     return (
       <div>
-        <div>
-          <input type="queryText" value={this.state.query} placeholder="Type a word" onChange={this.queryOnChange} />
-          <input type="button" value="Submit" onClick={() => this.submitQuery()} />
+        <MyHeader />
+        <div className="container mt-4">
+          <h4>Type one or more words separated by blank. We'll find most related classic movie quotes for you.</h4>
+          <div class="col-md-10 col-lg-8 col-xl-7 max-auto mt-4">
+            <form>
+              <div class="form-row">
+                <div class="col-12 col-md-9 mb-2 mb-md-0">
+                  <input class="form-control form-control-lg" type="queryText" value={this.state.query} placeholder="Key Words" onChange={this.queryOnChange} />
+                </div>
+                <div class="col-12 col-md-3">
+                  <input type="button" className="btn btn-block btn-lg btn-primary" value="Submit" onClick={() => this.submitQuery()} />
+                </div>
+              </div>
+            </form>
+            {recommendations}
+          </div>
         </div>
-        <div>{recommendations}</div>
       </div>
     );
   }

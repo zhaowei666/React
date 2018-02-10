@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css';
 import Game from './game';
 import MovieQuotes from './movieQuotes';
+import {MyHeader} from './base';
 
 
 const history = createHistory();
@@ -17,14 +18,19 @@ class Home extends React.Component {
   };
   render() {
     return (
-      <div>
-        <h1>Welcome</h1>
-        <div>
-          <h2>Navigation</h2>
-          <a href="/game">Tic-Tac-Toe</a>
-          <p>A tic-tac-toe game</p>
-          <a href="/movie-quotes">Movie quote recommendation</a>
-          <p>A tool helping you find classic movie quotes</p>
+      <div class="p-3">
+        <MyHeader />
+        <div class="card sbcard download-links mt-4">
+          <div class="card-body">
+            <h4>A tic-tac-toe game</h4>
+            <a href="/game" class="btn btn-secondary">Tic-Tac-Toe</a>
+          </div>
+        </div>
+        <div class="card sbcard download-links mt-4">
+          <div class="card-body">
+            <h4>Type a word we'll help you find related classic movie quotes</h4>
+            <a href="/movie-quotes" class="btn btn-secondary">Movie Quotes</a>
+        </div>
         </div>
       </div>
     );
