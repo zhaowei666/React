@@ -1,10 +1,13 @@
 import React from 'react';
+import {MyHeader} from './base';
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 export default class GameTool extends React.Component{
   render() {
     return (
       <div>
+        <MyHeader />
         <RoomCreater />
         <CharacterCheck />
       </div>
@@ -63,21 +66,27 @@ class RoomCreater extends React.Component{
     let roomMessage;
     if (room) {
       roomMessage = "You room has been created successfully. The room number is " + room + ".";
+    } else {
+      roomMessage = "Type number of each character and create a room"
     }
     return (
-      <div>
-        <div><p>{roomMessage}</p></div>
-        <form>
-          {this.renderCharacterInput('Merlin')}
-          {this.renderCharacterInput('Morgana')}
-          {this.renderCharacterInput('Percival')}
-          {this.renderCharacterInput('Assassin')}
-          {this.renderCharacterInput('Oberon')}
-          {this.renderCharacterInput('Mordred')}
-          {this.renderCharacterInput('Loyal Servant')}
-          {this.renderCharacterInput('Minion of Mordred')}
-          <input type="button" value="Create Room" onClick={() => this.submitForm()} />
-        </form>
+      <div class="container">
+        <div class="breadcrumb">
+          <div><h4>{roomMessage}</h4></div>
+          <div class="m-4">
+            <form>
+              {this.renderCharacterInput('Merlin')}
+              {this.renderCharacterInput('Morgana')}
+              {this.renderCharacterInput('Percival')}
+              {this.renderCharacterInput('Assassin')}
+              {this.renderCharacterInput('Oberon')}
+              {this.renderCharacterInput('Mordred')}
+              {this.renderCharacterInput('Loyal Servant of Arthur')}
+              {this.renderCharacterInput('Minion of Mordred')}
+              <input type="button" class="btn btn-block btn-lg btn-primary" value="Create Room" onClick={() => this.submitForm()} />
+            </form>
+          </div>
+        </div>
       </div>
     )
   }
@@ -85,7 +94,7 @@ class RoomCreater extends React.Component{
 
 function CharacterInput(props) {
   return (
-    <label>{props.value}
+    <label class="m-2">{props.value}
       <input type="queryText" name={props.value} onChange={props.onChange} />
     </label>
   );
@@ -143,7 +152,7 @@ class CharacterCheck extends React.Component {
   render() {
     const card = this.state.card;
     const status = this.state.status;
-    let cardMessage;
+    let cardMessage = "If your friend has already created a room. Enter the room number and your nickname to draw a car.If you have drew a card, you can also enter the room number and nickname to track it";
     if (status === 202) {
       cardMessage = "Sorry! No cards left in the pool";
     } else if (status === 201) {
@@ -156,21 +165,23 @@ class CharacterCheck extends React.Component {
       }
     }
     return (
-      <div>
-        <div>
-          <p>{cardMessage}</p>
+      <div class="container">
+        <div class="breadcrumb">
+          <div>
+            <h5>{cardMessage}</h5>
+          </div>
+          <div class="m-4">
+            <label class="ml-4">Nick Name
+              <input type="queryText" placeholder="Enter your nickname" onChange={(target) => this.nameOnChange(target)} />
+            </label>
+          </div>
+          <div class="m-4">
+            <label class="ml-4">Room Number
+              <input type="queryText" placeholder="Enter room number" onChange={(target) => this.roomOnChane(target)} />
+            </label>
+          </div>
+          <input type="button" class="btn btn-block btn-lg btn-primary" value="See your card" onClick={this.submitCheck} />
         </div>
-        <div>
-          <label>Nick Name
-            <input type="queryText" placeholder="Enter your nickname" onChange={(target) => this.nameOnChange(target)} />
-          </label>
-        </div>
-        <div>
-          <label>Room Number
-            <input type="queryText" placeholder="Enter room number" onChange={(target) => this.roomOnChane(target)} />
-          </label>
-        </div>
-        <input type="button" value="See your card" onClick={this.submitCheck} />
       </div>
     )
   }

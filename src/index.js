@@ -31,7 +31,13 @@ class Home extends React.Component {
           <div class="card-body">
             <h4>Type a word we'll help you find related classic movie quotes</h4>
             <a href="/movie-quotes" class="btn btn-secondary">Movie Quotes</a>
+          </div>
         </div>
+        <div class="card sbcard download-links mt-4">
+          <div class="card-body">
+            <h4>A game tool to help you randomly distribute cards</h4>
+            <a href="/game-tool" class="btn btn-secondary">Game Tool</a>
+          </div>
         </div>
       </div>
     );
