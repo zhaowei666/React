@@ -48,8 +48,8 @@ class MovieQuotes extends React.Component{
       const movieInfo = '----' + quote['name'] + '(' + quote['year'] + ')';
       return (
         <div>
-          <div class="bg-light text-dark mt-4">{quote['text']}</div>
-          <div class="bg-dark text-light mt-2">{movieInfo}</div>
+          <div class="bg-light text-dark mt-">{quote['text']}</div>
+          <div class="bg-dark text-light">{movieInfo}</div>
         </div>
         )
     });
@@ -57,7 +57,7 @@ class MovieQuotes extends React.Component{
       <div>
         <MyHeader />
         <div className="container mt-4">
-          <h4>Type one or more words separated by blank. We'll find most related classic movie quotes for you.</h4>
+          <h2>Type one or more words separated by blank</h2>
           <div class="col-md-10 col-lg-8 col-xl-7 max-auto mt-4">
             <form>
               <div class="form-row">

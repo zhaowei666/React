@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css';
 import Game from './game';
 import MovieQuotes from './movieQuotes';
+import GameTool from './gameTool';
 import {MyHeader} from './base';
 
 
@@ -46,6 +47,7 @@ ReactDOM.render((
       <Route path='/index' component={Home} />
       <Route path='/game' component={Game} />
       <Route path='/movie-quotes' component={MovieQuotes} />
+      <Route path='/game-tool' component={GameTool} />
     </div>
   </BrowserRouter>
 ), document.getElementById('root'));
