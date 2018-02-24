@@ -4,6 +4,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 
 export default class GameTool extends React.Component{
+
+  componentWillMount() {
+    document.title = 'Card Game Tool from Zhaowei'
+  };
+
   render() {
     return (
       <div>
@@ -30,7 +35,7 @@ class RoomCreater extends React.Component{
   }
   submitForm() {
     const characters = JSON.stringify(this.state.characters);
-    const url = "http://127.0.0.1:8000/game_tool/create_room?characters=" + characters;
+    const url = "http://ec2-18-219-184-27.us-east-2.compute.amazonaws.com/game_tool/create_room?characters=" + characters;
     fetch((url), {
       method: "GET",
     })
@@ -74,6 +79,21 @@ class RoomCreater extends React.Component{
         <div class="breadcrumb">
           <div><h4>{roomMessage}</h4></div>
           <div class="m-4">
+            <h4>WereWolf</h4>
+            <form>
+              {this.renderCharacterInput('Moderator')}
+              {this.renderCharacterInput('Seer')}
+              {this.renderCharacterInput('Witch')}
+              {this.renderCharacterInput('Hunter')}
+              {this.renderCharacterInput('Savior')}
+              {this.renderCharacterInput('Idiot')}
+              {this.renderCharacterInput('Werewolf King')}
+              {this.renderCharacterInput('Villager')}
+              {this.renderCharacterInput('Werewolf')}
+            </form>
+          </div>
+          <div class="m-4">
+            <h4>Avalon</h4>
             <form>
               {this.renderCharacterInput('Merlin')}
               {this.renderCharacterInput('Morgana')}
@@ -129,7 +149,7 @@ class CharacterCheck extends React.Component {
   submitCheck() {
     const room = this.state.room;
     const name = this.state.name;
-    const url = "http://127.0.0.1:8000/game_tool/draw_character?name=" + name + "&room=" + room;
+    const url = "http://ec2-18-219-184-27.us-east-2.compute.amazonaws.com/game_tool/draw_character?name=" + name + "&room=" + room;
     fetch((url), {
       method: "GET"
     })
