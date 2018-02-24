@@ -13,8 +13,8 @@ export default class GameTool extends React.Component{
     return (
       <div>
         <MyHeader />
-        <RoomCreater />
         <CharacterCheck />
+        <RoomCreater />
       </div>
     )
   }
@@ -34,8 +34,24 @@ class RoomCreater extends React.Component{
     this.render = this.render.bind(this);
   }
   submitForm() {
-    const characters = JSON.stringify(this.state.characters);
-    const url = "http://ec2-18-219-184-27.us-east-2.compute.amazonaws.com/game_tool/create_room?characters=" + characters;
+    const characters = this.state.characters;
+    let isNumber = true;
+    const reg = /^\d$/;
+    for (let key in characters) {
+      if (! reg.test(characters[key])) {
+        isNumber = false;
+        break;
+      }
+    }
+    if (!isNumber) {
+      this.setState({
+        error: 'Incorrect input format'
+      });
+      return
+    }
+    const charactersJson = JSON.stringify(characters);
+    const url = "http://ec2-18-219-184-27.us-east-2.compute.amazonaws.com/game_tool/create_room?characters=" + charactersJson;
+    //const url = "http://127.0.0.1:8000/game_tool/create_room?characters=" + charactersJson;
     fetch((url), {
       method: "GET",
     })
@@ -69,10 +85,14 @@ class RoomCreater extends React.Component{
   render() {
     const room = this.state.room;
     let roomMessage;
-    if (room) {
-      roomMessage = "You room has been created successfully. The room number is " + room + ".";
+    if (this.state.error) {
+      roomMessage = this.state.error;
     } else {
-      roomMessage = "Type number of each character and create a room"
+      if (room) {
+        roomMessage = "You room has been created successfully. The room number is " + room + ".";
+      } else {
+        roomMessage = "Type number of each character and create a room"
+      }
     }
     return (
       <div class="container">
@@ -115,7 +135,7 @@ class RoomCreater extends React.Component{
 function CharacterInput(props) {
   return (
     <label class="m-2">{props.value}
-      <input type="queryText" name={props.value} onChange={props.onChange} />
+      <input type="queryText" class="col-3" name={props.value} onChange={props.onChange} />
     </label>
   );
 }
@@ -149,6 +169,7 @@ class CharacterCheck extends React.Component {
   submitCheck() {
     const room = this.state.room;
     const name = this.state.name;
+    //const url = "http://127.0.0.1:8000/game_tool/draw_character?name=" + name + "&room=" + room;
     const url = "http://ec2-18-219-184-27.us-east-2.compute.amazonaws.com/game_tool/draw_character?name=" + name + "&room=" + room;
     fetch((url), {
       method: "GET"
@@ -160,6 +181,11 @@ class CharacterCheck extends React.Component {
         return res.json();
       })
       .then(res => {
+        if (this.state.status === 202 && res.error) {
+          this.setState({
+            error: res.error
+          });
+        }
         this.setState({
           card: res.character,
         });
@@ -173,8 +199,9 @@ class CharacterCheck extends React.Component {
     const card = this.state.card;
     const status = this.state.status;
     let cardMessage = "If your friend has already created a room. Enter the room number and your nickname to draw a car.If you have drew a card, you can also enter the room number and nickname to track it";
-    if (status === 202) {
-      cardMessage = "Sorry! No cards left in the pool";
+    if (this.state.error) {
+      //cardMessage = "Sorry! No cards left in the pool";
+      cardMessage = this.state.error;
     } else if (status === 201) {
       if (card) {
         cardMessage = "You are " + card + " in this game! Good Luck";

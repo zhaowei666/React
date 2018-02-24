@@ -35,7 +35,7 @@ class Home extends React.Component {
         </div>
         <div class="card sbcard download-links mt-4">
           <div class="card-body">
-            <h4>A game tool to help you randomly distribute cards</h4>
+            <h4>A tool for Werewolf and Avalon game. Create a room, and draw a card.</h4>
             <a href="/game-tool" class="btn btn-secondary">Game Tool</a>
           </div>
         </div>
