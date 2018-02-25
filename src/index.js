@@ -23,8 +23,8 @@ class Home extends React.Component {
         <MyHeader />
         <div class="card sbcard download-links mt-4">
           <div class="card-body">
-            <h4>A tic-tac-toe game</h4>
-            <a href="/game" class="btn btn-secondary">Tic-Tac-Toe</a>
+            <h4>A tool for Werewolf and Avalon game. Create a room, and draw a card.</h4>
+            <a href="/game-tool" class="btn btn-secondary">Game Tool</a>
           </div>
         </div>
         <div class="card sbcard download-links mt-4">
@@ -35,10 +35,12 @@ class Home extends React.Component {
         </div>
         <div class="card sbcard download-links mt-4">
           <div class="card-body">
-            <h4>A tool for Werewolf and Avalon game. Create a room, and draw a card.</h4>
-            <a href="/game-tool" class="btn btn-secondary">Game Tool</a>
+            <h4>A tic-tac-toe game</h4>
+            <a href="/game" class="btn btn-secondary">Tic-Tac-Toe</a>
           </div>
         </div>
+
+
       </div>
     );
   }

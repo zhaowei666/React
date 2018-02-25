@@ -198,16 +198,17 @@ class CharacterCheck extends React.Component {
   render() {
     const card = this.state.card;
     const status = this.state.status;
-    let cardMessage = "If your friend has already created a room. Enter the room number and your nickname to draw a car.If you have drew a card, you can also enter the room number and nickname to track it";
+    let cardMessage = "If your friend has already created a room. Enter the room number and your nickname to draw a car.If you have drew a card, you can also enter the room number and nickname to track it.";
     if (this.state.error) {
       cardMessage = this.state.error;
-    } else if (status === 201) {
+    }
+    if (status === 201) {
       if (card) {
-        cardMessage = <div><a>You are </a><a class="text-danger">{card}</a><a> in this game! Good Luck</a></div>;
+        cardMessage = <div><a>You are </a><a class="text-danger">{card}</a><a> in this game! Good Luck!</a></div>;
       }
     } else if (status === 200) {
       if (card) {
-        cardMessage = <div>"You drew a card before. You are <a class="text-danger">{card}</a>"."</div>;
+        cardMessage = <div>"You drew a card before. You are <a class="text-danger">{card}</a>.</div>;
       }
     }
     let cardImage;
