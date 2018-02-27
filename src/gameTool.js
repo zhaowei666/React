@@ -3,7 +3,7 @@ import {MyHeader} from './base';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
-export default class GameTool extends React.Component{
+export default class CardDistributor extends React.Component{
 
   componentWillMount() {
     document.title = 'Card Game Tool from Zhaowei'
@@ -98,9 +98,11 @@ class RoomCreater extends React.Component{
       <div class="container">
         <div class="breadcrumb">
           <div><h4>{roomMessage}</h4></div>
-          <div class="m-4">
-            <h4>WereWolf</h4>
-            <form>
+          <div class="card mb-2">
+            <div class="card-header bg-secondary text-white">
+              <h5>Werewolf</h5>
+            </div>
+            <div class="card-body form-inline">
               {this.renderCharacterInput('Moderator')}
               {this.renderCharacterInput('Seer')}
               {this.renderCharacterInput('Witch')}
@@ -110,11 +112,13 @@ class RoomCreater extends React.Component{
               {this.renderCharacterInput('Werewolf King')}
               {this.renderCharacterInput('Villager')}
               {this.renderCharacterInput('Werewolf')}
-            </form>
+            </div>
           </div>
-          <div class="m-4">
-            <h4>Avalon</h4>
-            <form>
+          <div class="card mb-2">
+            <div class="card-header bg-secondary text-white">
+              <h5>Avalon</h5>
+            </div>
+            <div class="card-body form-inline">
               {this.renderCharacterInput('Merlin')}
               {this.renderCharacterInput('Morgana')}
               {this.renderCharacterInput('Percival')}
@@ -123,9 +127,9 @@ class RoomCreater extends React.Component{
               {this.renderCharacterInput('Mordred')}
               {this.renderCharacterInput('Loyal Servant of Arthur')}
               {this.renderCharacterInput('Minion of Mordred')}
-              <input type="button" class="btn btn-block btn-lg btn-primary" value="Create Room" onClick={() => this.submitForm()} />
-            </form>
+            </div>
           </div>
+          <input type="button" class="btn btn-block btn-lg btn-primary" value="Create Room" onClick={() => this.submitForm()} />
         </div>
       </div>
     )
@@ -134,8 +138,20 @@ class RoomCreater extends React.Component{
 
 function CharacterInput(props) {
   return (
+    /*
     <label class="m-2">{props.value}
       <input type="queryText" class="col-3" name={props.value} onChange={props.onChange} />
+    </label>
+    */
+    <label class="form-control m-1">
+      <a class="mr-1">{props.value}</a>
+      <select name={props.value} onChange={props.onChange}>
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
     </label>
   );
 }
@@ -224,15 +240,15 @@ class CharacterCheck extends React.Component {
             <h5>{cardMessage}</h5>
             {cardImage}
           </div>
-          <div class="m-4">
-            <label class="ml-4">Nick Name
-              <input type="queryText" placeholder="Enter your nickname" onChange={(target) => this.nameOnChange(target)} />
-            </label>
-          </div>
-          <div class="m-4">
-            <label class="ml-4">Room Number
-              <input type="queryText" placeholder="Enter room number" onChange={(target) => this.roomOnChane(target)} />
-            </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">Nick Name</div>
+            </div>
+            <input type="text" placeholder="Enter your nickname" onChange={(target) => this.nameOnChange(target)} />
+            <div class="input-group-prepend ml-4">
+              <div class="input-group-text">Room Number</div>
+            </div>
+            <input type="text" placeholder="Enter room number" onChange={(target) => this.roomOnChane(target)} />
           </div>
           <input type="button" class="btn btn-block btn-lg btn-primary" value="See your card" onClick={this.submitCheck} />
         </div>

@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css';
 import Game from './game';
 import MovieQuotes from './movieQuotes';
-import GameTool from './gameTool';
+import CardDistributor from './gameTool';
 import {MyHeader} from './base';
 
 
@@ -24,7 +24,7 @@ class Home extends React.Component {
         <div class="card sbcard download-links mt-4">
           <div class="card-body">
             <h4>A tool for Werewolf and Avalon game. Create a room, and draw a card.</h4>
-            <a href="/game-tool" class="btn btn-secondary">Game Tool</a>
+            <a href="/game-tool" class="btn btn-secondary">Card Distributor</a>
           </div>
         </div>
         <div class="card sbcard download-links mt-4">
@@ -55,7 +55,7 @@ ReactDOM.render((
       <Route path='/index' component={Home} />
       <Route path='/game' component={Game} />
       <Route path='/movie-quotes' component={MovieQuotes} />
-      <Route path='/game-tool' component={GameTool} />
+      <Route path='/game-tool' component={CardDistributor} />
     </div>
   </BrowserRouter>
 ), document.getElementById('root'));

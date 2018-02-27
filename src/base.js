@@ -8,7 +8,7 @@ export class MyHeader extends React.Component {
       <header class="page-heading bg-secondary text-light">
         <div class="row">
           <div class="col-sm-3 bg-warning navbar-brand">
-            <a class="text-light" href="/"><h1>Home</h1></a>
+            <a class="text-light text-center" href="/"><h1>Home</h1></a>
           </div>
 
           <div class="col-sm-7">
