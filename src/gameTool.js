@@ -185,6 +185,12 @@ class CharacterCheck extends React.Component {
   submitCheck() {
     const room = this.state.room;
     const name = this.state.name;
+    if (! name) {
+      this.setState({
+        error: 'Name cannot be empty'
+      });
+      return;
+    }
     //const url = "http://127.0.0.1:8000/game_tool/draw_character?name=" + name + "&room=" + room;
     const url = "http://ec2-18-219-184-27.us-east-2.compute.amazonaws.com/game_tool/draw_character?name=" + name + "&room=" + room;
     fetch((url), {
@@ -242,11 +248,13 @@ class CharacterCheck extends React.Component {
           </div>
           <div class="input-group">
             <div class="input-group-prepend">
-              <div class="input-group-text">Nick Name</div>
+              <div class="input-group-text bg-secondary text-white">Nick Name</div>
             </div>
             <input type="text" placeholder="Enter your nickname" onChange={(target) => this.nameOnChange(target)} />
-            <div class="input-group-prepend ml-4">
-              <div class="input-group-text">Room Number</div>
+          </div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text bg-secondary text-white">Room Number</div>
             </div>
             <input type="text" placeholder="Enter room number" onChange={(target) => this.roomOnChane(target)} />
           </div>
