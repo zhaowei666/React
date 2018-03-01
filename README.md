@@ -1,3 +1,5 @@
+The website is (http://ec2-18-217-239-185.us-east-2.compute.amazonaws.com/)</br>
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
