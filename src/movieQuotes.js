@@ -16,14 +16,9 @@ class MovieQuotes extends React.Component{
   }
 
   submitQuery() {
-    const url = 'http://18.220.117.37/quotes?query=' + this.state.query;
+    const url = 'http://18.219.184.27/movie/quotes?query=' + this.state.query;
     fetch (url, {
-      method: "GET",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "mode": 'no-cors',
-        dataType: 'json'
-      }
+      method: "GET"
     })
       .then(res => res.json())
       .then(res => {
