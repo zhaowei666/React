@@ -27,19 +27,19 @@ class Home extends React.Component {
         <div class="card m-2">
           <div class="card-body">
             <h4>A tool for Werewolf and Avalon game. Create a room, and draw a card.</h4>
-            <a href="/game-tool" class="btn btn-secondary"><span class="fa fa-asterisk mr-1" />Card Distributor</a>
+            <a href="/game-tool" class="btn btn-my text-white"><span class="fa fa-asterisk mr-1" />Card Distributor</a>
           </div>
         </div>
         <div class="card m-2">
           <div class="card-body">
             <h4>Type a word we'll help you find related classic movie quotes</h4>
-            <a href="/movie-quotes" class="btn btn-secondary"><span class="fa fa-film mr-1" />Movie Quotes</a>
+            <a href="/movie-quotes" class="btn btn-my text-white"><span class="fa fa-film mr-1" />Movie Quotes</a>
           </div>
         </div>
         <div class="card m-2">
           <div class="card-body">
             <h4>A tic-tac-toe game</h4>
-            <a href="/game" class="btn btn-secondary"><span class="fa fa-th mr-1" />Tic-Tac-Toe</a>
+            <a href="/game" class="btn btn-my text-white"><span class="fa fa-th mr-1" />Tic-Tac-Toe</a>
           </div>
         </div>
       </div>
