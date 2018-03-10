@@ -5,18 +5,24 @@ import 'bootstrap/dist/css/bootstrap.css';
 export class MyHeader extends React.Component {
   render() {
     return (
-      <header class="page-heading bg-secondary text-light">
-        <div class="row">
-          <div class="col-sm-3 bg-warning navbar-brand">
-            <a class="text-light text-center" href="/"><h1>Home</h1></a>
+      <div>
+        <nav class="navbar navbar-expand-lg nvabar-light navbar-static-top sb-navbar bg-white">
+          <div class="container">
+            <a class="navbar-brand text-secondary text-left font-weight-bold" href="/">Home</a>
+            <div class="collapse navbar-collapse">
+              <a class="navbar-brand text-secondary text-left nav-item" href="/game-tool">Game</a>
+              <a class="navbar-brand text-secondary text-left" href="movie-quotes">Movie</a>
+              <a class="navbar-brand text-secondary text-left" href="/game">Tic-Tac-Toe</a>
+            </div>
           </div>
-
-          <div class="col-sm-7">
-            <h1>Welcome to Zhaowei's homepage</h1>
-            <p>Be a dreamer, or a dry fish</p>
+        </nav>
+        <header class="page-heading text-light" style={{backgroundColor: "#3b7ca6"}}>
+          <div class="container" >
+                <h1>Welcome to Zhaowei's homepage</h1>
+                <p>Be a dreamer, or a dry fish</p>
           </div>
-        </div>
-      </header>
+        </header>
+      </div>
     )
   }
 }

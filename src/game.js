@@ -1,10 +1,12 @@
 import React from 'react';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import {MyHeader} from "./base"
 
 class Game extends React.Component{
   componentWillMount() {
-    document.title = 'Tic-tac-toe from Zhaowei'
+    document.title = 'Tic-tac-toe from Zhaowei';
+    document.body.style.backgroundColor = "#e6ecf0";
   };
   constructor(props) {
     super(props);
@@ -49,7 +51,7 @@ class Game extends React.Component{
         'Go to game Start';
       return (
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button class="btn-my" onClick={() => this.jumpTo(move)}>{desc}</button>
         </li>
       );
     });

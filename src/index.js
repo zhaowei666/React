@@ -15,31 +15,34 @@ const history = createHistory();
 
 class Home extends React.Component {
   componentWillMount() {
-      document.title = "Zhaowei's Front End"
+      document.title = "Zhaowei's Front End";
+      document.body.style.backgroundColor = "#e6ecf0";
   };
   render() {
     return (
-      <div class="p-3">
+      <div >
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
         <MyHeader />
-        <div class="card sbcard download-links mt-4">
+        <div class="container">
+        <div class="card m-2">
           <div class="card-body">
             <h4>A tool for Werewolf and Avalon game. Create a room, and draw a card.</h4>
-            <a href="/game-tool" class="btn btn-secondary">Card Distributor</a>
+            <a href="/game-tool" class="btn btn-secondary"><span class="fa fa-asterisk mr-1" />Card Distributor</a>
           </div>
         </div>
-        <div class="card sbcard download-links mt-4">
+        <div class="card m-2">
           <div class="card-body">
             <h4>Type a word we'll help you find related classic movie quotes</h4>
-            <a href="/movie-quotes" class="btn btn-secondary">Movie Quotes</a>
+            <a href="/movie-quotes" class="btn btn-secondary"><span class="fa fa-film mr-1" />Movie Quotes</a>
           </div>
         </div>
-        <div class="card sbcard download-links mt-4">
+        <div class="card m-2">
           <div class="card-body">
             <h4>A tic-tac-toe game</h4>
-            <a href="/game" class="btn btn-secondary">Tic-Tac-Toe</a>
+            <a href="/game" class="btn btn-secondary"><span class="fa fa-th mr-1" />Tic-Tac-Toe</a>
           </div>
         </div>
-
+      </div>
 
       </div>
     );

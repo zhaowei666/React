@@ -1,12 +1,14 @@
 import React from 'react';
 import {MyHeader} from './base';
 import 'bootstrap/dist/css/bootstrap.css';
+import './index.css';
 
 
 export default class CardDistributor extends React.Component{
 
   componentWillMount() {
-    document.title = 'Card Game Tool from Zhaowei'
+    document.title = 'Card Game Tool from Zhaowei';
+    document.body.style.backgroundColor = "#e6ecf0";
   };
 
   render() {
@@ -91,18 +93,16 @@ class RoomCreater extends React.Component{
       if (room) {
         roomMessage = "You room has been created successfully. The room number is " + room + ".";
       } else {
-        roomMessage = "Type number of each character and create a room"
+        roomMessage = <div>Create a room: <small>Type number of each character and create room.</small></div>
       }
     }
     return (
-      <div class="container">
-        <div class="breadcrumb">
-          <div><h4>{roomMessage}</h4></div>
-          <div class="card mb-2">
-            <div class="card-header bg-secondary text-white">
-              <h5>Werewolf</h5>
-            </div>
-            <div class="card-body form-inline">
+      <div class="container mt-4">
+        <div><h5>{roomMessage}</h5></div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="ml-4 mt-2 font-weight-bold">Werewolf</h5>
+            <div class="form-inline">
               {this.renderCharacterInput('Moderator')}
               {this.renderCharacterInput('Seer')}
               {this.renderCharacterInput('Witch')}
@@ -113,12 +113,8 @@ class RoomCreater extends React.Component{
               {this.renderCharacterInput('Villager')}
               {this.renderCharacterInput('Werewolf')}
             </div>
-          </div>
-          <div class="card mb-2">
-            <div class="card-header bg-secondary text-white">
-              <h5>Avalon</h5>
-            </div>
-            <div class="card-body form-inline">
+            <h5 class="ml-4 mt-2 font-weight-bold">Avalon</h5>
+            <div class="form-inline">
               {this.renderCharacterInput('Merlin')}
               {this.renderCharacterInput('Morgana')}
               {this.renderCharacterInput('Percival')}
@@ -128,8 +124,8 @@ class RoomCreater extends React.Component{
               {this.renderCharacterInput('Loyal Servant of Arthur')}
               {this.renderCharacterInput('Minion of Mordred')}
             </div>
+            <input type="button" class="btn btn-block btn-lg btn-my text-white mt-2" value="Create Room" onClick={() => this.submitForm()} />
           </div>
-          <input type="button" class="btn btn-block btn-lg btn-primary" value="Create Room" onClick={() => this.submitForm()} />
         </div>
       </div>
     )
@@ -220,7 +216,7 @@ class CharacterCheck extends React.Component {
   render() {
     const card = this.state.card;
     const status = this.state.status;
-    let cardMessage = "If your friend has already created a room. Enter the room number and your nickname to draw a car.If you have drew a card, you can also enter the room number and nickname to track it.";
+    let cardMessage = <div>Instructions: <small>If your friend has already created a room. Enter the room number and your nickname to draw a car.If you have drew a card, you can also enter the room number and nickname to track it.</small></div>;
     if (this.state.error) {
       cardMessage = this.state.error;
     }
@@ -230,7 +226,7 @@ class CharacterCheck extends React.Component {
       }
     } else if (status === 200) {
       if (card) {
-        cardMessage = <div>"You drew a card before. You are <a class="text-danger">{card}</a>.</div>;
+        cardMessage = <div>You drew a card before. You are <a class="text-danger">{card}</a>.</div>;
       }
     }
     let cardImage;
@@ -240,25 +236,27 @@ class CharacterCheck extends React.Component {
       cardImage = <div><img src={cardImgUrl} alt="Good Luck" class="img-thumbnail" /></div>;
     }
     return (
-      <div class="container">
-        <div class="breadcrumb">
-          <div>
-            <h5>{cardMessage}</h5>
-            {cardImage}
-          </div>
-          <div class="input-group">
+      <div class="container mt-4">
+        <div>
+          <h5>{cardMessage}</h5>
+          {cardImage}
+        </div>
+        <div class="card">
+          <div class="card-body">
+          <div class="input-group m-1">
             <div class="input-group-prepend">
-              <div class="input-group-text bg-secondary text-white">Nick Name</div>
+              <div class="input-group-text font-weight-bold">Nick Name</div>
             </div>
             <input type="text" placeholder="Enter your nickname" onChange={(target) => this.nameOnChange(target)} />
           </div>
-          <div class="input-group">
+          <div class="input-group m-1">
             <div class="input-group-prepend">
-              <div class="input-group-text bg-secondary text-white">Room Number</div>
+              <div class="input-group-text font-weight-bold">Room Number</div>
             </div>
             <input type="text" placeholder="Enter room number" onChange={(target) => this.roomOnChane(target)} />
           </div>
-          <input type="button" class="btn btn-block btn-lg btn-primary" value="See your card" onClick={this.submitCheck} />
+          <input type="button" class="btn btn-block btn-lg m-2 btn-my text-white" value="See your card" onClick={this.submitCheck} />
+          </div>
         </div>
       </div>
     )

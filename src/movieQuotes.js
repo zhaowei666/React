@@ -4,7 +4,8 @@ import {MyHeader} from "./base";
 
 class MovieQuotes extends React.Component{
   componentWillMount() {
-    document.title = 'Movie Quote recommendations from Zhaowei'
+    document.title = 'Movie Quote recommendations from Zhaowei';
+    document.body.style.backgroundColor = "#e6ecf0";
   };
   constructor(props) {
     super(props);
@@ -42,7 +43,7 @@ class MovieQuotes extends React.Component{
     const recommendations = quotes.map((quote, idx) => {
       const movieInfo = '----' + quote['name'] + '(' + quote['year'] + ')';
       return (
-        <div>
+        <div class="m-2">
           <div class="bg-light text-dark mt-">{quote['text']}</div>
           <div class="bg-dark text-light">{movieInfo}</div>
         </div>
@@ -52,7 +53,7 @@ class MovieQuotes extends React.Component{
       <div>
         <MyHeader />
         <div className="container mt-4">
-          <h2>Type one or more words separated by blank</h2>
+          <h2>Type one or more words separated by space</h2>
           <div class="col-md-10 col-lg-8 col-xl-7 max-auto mt-4">
             <form>
               <div class="form-row">
@@ -60,11 +61,11 @@ class MovieQuotes extends React.Component{
                   <input class="form-control form-control-lg" type="queryText" value={this.state.query} placeholder="Key Words" onChange={this.queryOnChange} />
                 </div>
                 <div class="col-12 col-md-3">
-                  <input type="button" className="btn btn-block btn-lg btn-primary" value="Submit" onClick={() => this.submitQuery()} />
+                  <input type="button" className="btn btn-block btn-lg btn-my text-white" value="Submit" onClick={() => this.submitQuery()} />
                 </div>
               </div>
             </form>
-            {recommendations}
+            <div class="mt-4 bg-white">{recommendations}</div>
           </div>
         </div>
       </div>
