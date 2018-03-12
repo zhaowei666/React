@@ -2,6 +2,7 @@ import React from 'react';
 import {MyHeader} from './base';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
+import {API_KEY} from './const';
 
 
 export default class CardDistributor extends React.Component{
@@ -52,7 +53,8 @@ class RoomCreater extends React.Component{
       return
     }
     const charactersJson = JSON.stringify(characters);
-    const url = "http://ec2-18-219-184-27.us-east-2.compute.amazonaws.com/game_tool/create_room?characters=" + charactersJson;
+    const url = "http://ec2-18-219-184-27.us-east-2.compute.amazonaws.com/game_tool/create_room?api_key="
+      + API_KEY + "&characters=" + charactersJson;
     //const url = "http://127.0.0.1:8000/game_tool/create_room?characters=" + charactersJson;
     fetch((url), {
       method: "GET",
@@ -188,7 +190,8 @@ class CharacterCheck extends React.Component {
       return;
     }
     //const url = "http://127.0.0.1:8000/game_tool/draw_character?name=" + name + "&room=" + room;
-    const url = "http://ec2-18-219-184-27.us-east-2.compute.amazonaws.com/game_tool/draw_character?name=" + name + "&room=" + room;
+    const url = "http://ec2-18-219-184-27.us-east-2.compute.amazonaws.com/game_tool/draw_character?api_key="
+      + API_KEY + "&name=" + name + "&room=" + room;
     fetch((url), {
       method: "GET"
     })
