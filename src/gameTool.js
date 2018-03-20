@@ -99,12 +99,12 @@ class RoomCreater extends React.Component{
       }
     }
     return (
-      <div class="container mt-4">
+      <div className="container mt-4">
         <div><h5>{roomMessage}</h5></div>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="ml-4 mt-2 font-weight-bold">Werewolf</h5>
-            <div class="form-inline">
+        <div className="card">
+          <div className="card-body">
+            <h5 className="ml-4 mt-2 font-weight-bold">Werewolf</h5>
+            <div className="form-inline">
               {this.renderCharacterInput('Moderator')}
               {this.renderCharacterInput('Seer')}
               {this.renderCharacterInput('Witch')}
@@ -115,8 +115,8 @@ class RoomCreater extends React.Component{
               {this.renderCharacterInput('Villager')}
               {this.renderCharacterInput('Werewolf')}
             </div>
-            <h5 class="ml-4 mt-2 font-weight-bold">Avalon</h5>
-            <div class="form-inline">
+            <h5 className="ml-4 mt-2 font-weight-bold">Avalon</h5>
+            <div className="form-inline">
               {this.renderCharacterInput('Merlin')}
               {this.renderCharacterInput('Morgana')}
               {this.renderCharacterInput('Percival')}
@@ -126,7 +126,7 @@ class RoomCreater extends React.Component{
               {this.renderCharacterInput('Loyal Servant of Arthur')}
               {this.renderCharacterInput('Minion of Mordred')}
             </div>
-            <input type="button" class="btn btn-block btn-lg btn-my text-white mt-2" value="Create Room" onClick={() => this.submitForm()} />
+            <input type="button" className="btn btn-block btn-lg btn-my text-white mt-2" value="Create Room" onClick={() => this.submitForm()} />
           </div>
         </div>
       </div>
@@ -141,8 +141,8 @@ function CharacterInput(props) {
       <input type="queryText" class="col-3" name={props.value} onChange={props.onChange} />
     </label>
     */
-    <label class="form-control m-1">
-      <a class="mr-1">{props.value}</a>
+    <label className="form-control m-1">
+      <a className="mr-1">{props.value}</a>
       <select name={props.value} onChange={props.onChange}>
         <option value="0">0</option>
         <option value="1">1</option>
@@ -225,40 +225,40 @@ class CharacterCheck extends React.Component {
     }
     if (status === 201) {
       if (card) {
-        cardMessage = <div><a>You are </a><a class="text-danger">{card}</a><a> in this game! Good Luck!</a></div>;
+        cardMessage = <div><a>You are </a><a className="text-danger">{card}</a><a> in this game! Good Luck!</a></div>;
       }
     } else if (status === 200) {
       if (card) {
-        cardMessage = <div>You drew a card before. You are <a class="text-danger">{card}</a>.</div>;
+        cardMessage = <div>You drew a card before. You are <a className="text-danger">{card}</a>.</div>;
       }
     }
     let cardImage;
     if (card) {
       const cardImgUrl = "https://s3.us-east-2.amazonaws.com/zhaowei-storage/Werewolf/" + card + ".jpg";
       //document.write(cardImgUrl);
-      cardImage = <div><img src={cardImgUrl} alt="Good Luck" class="img-thumbnail" /></div>;
+      cardImage = <div><img src={cardImgUrl} alt="Good Luck" className="img-thumbnail" /></div>;
     }
     return (
-      <div class="container mt-4">
+      <div className="container mt-4">
         <div>
           <h5>{cardMessage}</h5>
           {cardImage}
         </div>
-        <div class="card">
-          <div class="card-body">
-          <div class="input-group m-1">
-            <div class="input-group-prepend">
-              <div class="input-group-text font-weight-bold">Nick Name</div>
+        <div className="card">
+          <div className="card-body">
+          <div className="input-group m-1">
+            <div className="input-group-prepend">
+              <div className="input-group-text font-weight-bold">Nick Name</div>
             </div>
             <input type="text" placeholder="Enter your nickname" onChange={(target) => this.nameOnChange(target)} />
           </div>
-          <div class="input-group m-1">
-            <div class="input-group-prepend">
-              <div class="input-group-text font-weight-bold">Room Number</div>
+          <div className="input-group m-1">
+            <div className="input-group-prepend">
+              <div className="input-group-text font-weight-bold">Room Number</div>
             </div>
             <input type="text" placeholder="Enter room number" onChange={(target) => this.roomOnChane(target)} />
           </div>
-          <input type="button" class="btn btn-block btn-lg m-2 btn-my text-white" value="See your card" onClick={this.submitCheck} />
+          <input type="button" className="btn btn-block btn-lg m-2 btn-my text-white" value="See your card" onClick={this.submitCheck} />
           </div>
         </div>
       </div>

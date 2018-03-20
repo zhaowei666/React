@@ -23,23 +23,23 @@ class Home extends React.Component {
       <div >
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
         <MyHeader />
-        <div class="container">
-        <div class="card m-2">
-          <div class="card-body">
+        <div className="container">
+        <div className="card m-2">
+          <div className="card-body">
             <h4>A tool for Werewolf and Avalon game. Create a room, and draw a card.</h4>
-            <a href="/game-tool" class="btn btn-my text-white"><span class="fa fa-asterisk mr-1" />Card Distributor</a>
+            <a href="/game-tool" className="btn btn-my text-white"><span className="fa fa-asterisk mr-1" />Card Distributor</a>
           </div>
         </div>
-        <div class="card m-2">
-          <div class="card-body">
+        <div className="card m-2">
+          <div className="card-body">
             <h4>Type a word we'll help you find related classic movie quotes</h4>
-            <a href="/movie-quotes" class="btn btn-my text-white"><span class="fa fa-film mr-1" />Movie Quotes</a>
+            <a href="/movie-quotes" className="btn btn-my text-white"><span className="fa fa-film mr-1" />Movie Quotes</a>
           </div>
         </div>
-        <div class="card m-2">
-          <div class="card-body">
+        <div className="card m-2">
+          <div className="card-body">
             <h4>A tic-tac-toe game</h4>
-            <a href="/game" class="btn btn-my text-white"><span class="fa fa-th mr-1" />Tic-Tac-Toe</a>
+            <a href="/game" className="btn btn-my text-white"><span className="fa fa-th mr-1" />Tic-Tac-Toe</a>
           </div>
         </div>
       </div>

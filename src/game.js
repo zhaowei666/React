@@ -51,7 +51,7 @@ class Game extends React.Component{
         'Go to game Start';
       return (
         <li key={move}>
-          <button class="btn-my" onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button className="btn-my" onClick={() => this.jumpTo(move)}>{desc}</button>
         </li>
       );
     });
@@ -65,16 +65,16 @@ class Game extends React.Component{
     return (
       <div>
         <MyHeader />
-        <div class="row container mt-4">
-          <div class="col-sm-2" />
-          <div class="col-sm-4">
-            <h4 clss="align-center">Game Board</h4>
+        <div className="row container mt-4">
+          <div className="col-sm-2" />
+          <div className="col-sm-4">
+            <h4 className="align-center">Game Board</h4>
             <Board
               squares = {current.squares}
               onClick = {(i) => this.handleClick(i)}
             />
           </div>
-          <div class="col-sm-4">
+          <div className="col-sm-4">
             <h4>Steps</h4>
             <div>{status}</div>
             <ol>{moves}</ol>

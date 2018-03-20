@@ -43,9 +43,9 @@ class MovieQuotes extends React.Component{
     const recommendations = quotes.map((quote, idx) => {
       const movieInfo = '----' + quote['name'] + '(' + quote['year'] + ')';
       return (
-        <div class="m-2">
-          <div class="bg-light text-dark mt-">{quote['text']}</div>
-          <div class="bg-dark text-light">{movieInfo}</div>
+        <div className="m-2">
+          <div className="bg-light text-dark mt-">{quote['text']}</div>
+          <div className="bg-dark text-light">{movieInfo}</div>
         </div>
         )
     });
@@ -54,18 +54,18 @@ class MovieQuotes extends React.Component{
         <MyHeader />
         <div className="container mt-4">
           <h2>Type one or more words separated by space</h2>
-          <div class="col-md-10 col-lg-8 col-xl-7 max-auto mt-4">
+          <div className="col-md-10 col-lg-8 col-xl-7 max-auto mt-4">
             <form>
-              <div class="form-row">
-                <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  <input class="form-control form-control-lg" type="queryText" value={this.state.query} placeholder="Key Words" onChange={this.queryOnChange} />
+              <div className="form-row">
+                <div className="col-12 col-md-9 mb-2 mb-md-0">
+                  <input className="form-control form-control-lg" type="queryText" value={this.state.query} placeholder="Key Words" onChange={this.queryOnChange} />
                 </div>
-                <div class="col-12 col-md-3">
+                <div className="col-12 col-md-3">
                   <input type="button" className="btn btn-block btn-lg btn-my text-white" value="Submit" onClick={() => this.submitQuery()} />
                 </div>
               </div>
             </form>
-            <div class="mt-4 bg-white">{recommendations}</div>
+            <div className="mt-4 bg-white">{recommendations}</div>
           </div>
         </div>
       </div>
