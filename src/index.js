@@ -7,6 +7,7 @@ import './index.css';
 import Game from './game';
 import MovieQuotes from './movieQuotes';
 import CardDistributor from './gameTool';
+import FiveInRow from './fiveInRow';
 import {MyHeader} from './base';
 
 
@@ -59,6 +60,7 @@ ReactDOM.render((
       <Route path='/game' component={Game} />
       <Route path='/movie-quotes' component={MovieQuotes} />
       <Route path='/game-tool' component={CardDistributor} />
+      <Route path='/five-in-Row' component={FiveInRow} />
     </div>
   </BrowserRouter>
 ), document.getElementById('root'));
