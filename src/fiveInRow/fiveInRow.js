@@ -1,7 +1,7 @@
 import React from 'react';
 import {MyHeader} from '../base';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../index.css';
+import './fiveInRow.css';
 
 export default class FiveInRow extends React.Component {
   componentWillMount() {
@@ -17,23 +17,23 @@ export default class FiveInRow extends React.Component {
     }
     this.state = {
       boardSize: boardSize,
-      xIsNext: true,
+      blackIsNext: true,
       squares: squares
     };
   }
   handleClick(row, col) {
-    if (this.state.winner) {
+    let squares = this.state.squares;
+    if (this.state.winner || squares[row][col]) {
       return;
     }
-    let squares = this.state.squares;
-    squares[row][col] = this.state.xIsNext? 'X': 'O';
+    squares[row][col] = this.state.blackIsNext? 'b': 'w';
     let winner = null;
     if (calculateWinner(squares, [row, col])) {
-      winner = this.state.xIsNext? 'X': 'O';
+      winner = this.state.blackIsNext? 'b': 'w';
     }
     this.setState({
       squares: squares,
-      xIsNext: !this.state.xIsNext,
+      blackIsNext: !this.state.blackIsNext,
       winner: winner
       }
     );
@@ -67,8 +67,8 @@ export default class FiveInRow extends React.Component {
 
 function Square(props) {
   return (
-    <button className="square" onClick={props.onClick}>
-      {props.value}
+    <button className={props.pieceClass} onClick={props.onClick}>
+      <div className={props.spanClass} />
     </button>
   );
 }
@@ -76,9 +76,39 @@ function Square(props) {
 
 class Board extends React.Component {
   renderSquare(row, col) {
+    const boardSize = this.props.boardSize;
+    let spanClass = null;
+    if (this.props.squares[row][col] === 'b') {
+      spanClass = 'spanBlack';
+    } else if (this.props.squares[row][col] === 'w') {
+      spanClass = 'spanWhite';
+    }
+
+    let pieceClass = '';
+
+    if (row === 0 && col === 0) {
+      pieceClass = 'piece pieceLeftTop';
+    } else if (row === boardSize - 1 && col === 0) {
+      pieceClass = 'piece pieceLeftBottom';
+    } else if (row === 0 && col === boardSize - 1) {
+      pieceClass = 'piece pieceRightTop';
+    } else if (row === boardSize - 1 && col === boardSize - 1) {
+      pieceClass = 'piece pieceRightBottom';
+    } else if (row === 0 && 0 < col < boardSize - 1) {
+      pieceClass = 'piece pieceTop';
+    } else if (row === boardSize - 1 && 0 < col < boardSize - 1) {
+      pieceClass = 'piece pieceBottom';
+    } else if (0 < row < boardSize - 1 && col === 0) {
+      pieceClass = 'piece pieceLeft';
+    } else if (0 < row < boardSize - 1 && col === boardSize - 1) {
+      pieceClass = 'piece pieceRight';
+    } else {
+      pieceClass = 'piece pieceNormal';
+    }
     return (
       <Square
-        value={this.props.squares[row][col]}
+        pieceClass={pieceClass}
+        spanClass={spanClass}
         onClick={() => this.props.onClick(row, col)}
       />
     )

@@ -1,0 +1,81 @@
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.board-background {
+  background-color: #eeaf67;
+}
+
+.piece {
+  border: 0;
+  display: inline-block;
+  cursor: pointer;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  height: 42px;
+  width: 42px;
+  padding: 0;
+  text-align: center;
+  background-image: url(piece.png);
+}
+
+.pieceNormal {
+  background-position: -40px -40px;
+}
+
+.pieceTop {
+  background-position: -40px -10px;
+}
+
+.pieceBottom {
+  background-position: -40px -70px;
+}
+
+.pieceLeft {
+  background-position: -10px -40px;
+}
+
+.pieceRight {
+  background-position: -130px -40px;
+}
+
+.pieceLeftTop {
+  background-position: -10px -10px;
+}
+
+.pieceRightTop {
+  background-position: -130px -10px;
+}
+
+.pieceLeftBottom {
+  background-position: -10px -70px;
+}
+
+.pieceRightBottom {
+  background-position: -130px -70px;
+}
+
+.spanNone {
+  display: none;
+}
+
+.spanBlack {
+  display: block;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background-color: black;
+  box-shadow: .01rem .01rem .1rem rgba(0, 0, 0, .5), 0 0 .05rem rgba(240, 240, 240, .5), .05rem .05rem .01rem rgba(255, 255, 255, .15) inset, .1rem .1rem .1rem rgba(255, 255, 255, .05) inset, -.05rem -.05rem .25rem rgba(0, 0, 0, .15) inset, -.1rem -.1rem .35rem rgba(0, 0, 0, .05) inset;
+}
+
+.spanWhite {
+  display: block;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: .01rem .01rem .1rem rgba(0, 0, 0, .5), 0 0 .05rem rgba(240, 240, 240, .5), .05rem .05rem .01rem rgba(255, 255, 255, .15) inset, .1rem .1rem .1rem rgba(255, 255, 255, .05) inset, -.05rem -.05rem .25rem rgba(0, 0, 0, .15) inset, -.1rem -.1rem .35rem rgba(0, 0, 0, .05) inset;
+}
