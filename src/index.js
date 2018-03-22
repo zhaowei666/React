@@ -7,7 +7,7 @@ import './index.css';
 import Game from './game';
 import MovieQuotes from './movieQuotes';
 import CardDistributor from './gameTool';
-import FiveInRow from './fiveInRow';
+import FiveInRow from './fiveInRow/fiveInRow';
 import {MyHeader} from './base';
 
 
@@ -40,7 +40,7 @@ class Home extends React.Component {
         <div className="card m-2">
           <div className="card-body">
             <h4>A tic-tac-toe game</h4>
-            <a href="/game" className="btn btn-my text-white"><span className="fa fa-th mr-1" />Tic-Tac-Toe</a>
+            <a href="/five-in-row" className="btn btn-my text-white"><span className="fa fa-th mr-1" />Five in row Game</a>
           </div>
         </div>
       </div>
@@ -57,7 +57,7 @@ ReactDOM.render((
     <div>
       <Route exact path='/' component={Home} />
       <Route path='/index' component={Home} />
-      <Route path='/game' component={Game} />
+      <Route path='/tic-tac-toe' component={Game} />
       <Route path='/movie-quotes' component={MovieQuotes} />
       <Route path='/game-tool' component={CardDistributor} />
       <Route path='/five-in-Row' component={FiveInRow} />

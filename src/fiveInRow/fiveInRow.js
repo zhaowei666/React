@@ -1,5 +1,7 @@
 import React from 'react';
-import './index.css';
+import {MyHeader} from '../base';
+import 'bootstrap/dist/css/bootstrap.css';
+import '../index.css';
 
 export default class FiveInRow extends React.Component {
   componentWillMount() {
@@ -20,6 +22,9 @@ export default class FiveInRow extends React.Component {
     };
   }
   handleClick(row, col) {
+    if (this.state.winner) {
+      return;
+    }
     let squares = this.state.squares;
     squares[row][col] = this.state.xIsNext? 'X': 'O';
     let winner = null;
@@ -37,18 +42,23 @@ export default class FiveInRow extends React.Component {
     const boardSize = this.state.boardSize;
     const squares = this.state.squares;
     const winner = this.state.winner;
-    let message = '';
+    let message = <h5>Instructions: <small>Put pieces on board in turn. The one who connects five pieces in a row wins</small></h5>;
     if (winner) {
-      message = 'Winner is ' + winner;
+      message = <h5>Winner is {winner}</h5>;
     }
     return(
       <div>
-        <p>{message}</p>
-        <Board
-          squares={squares}
-          boardSize={boardSize}
-          onClick={(i, j) => this.handleClick(i, j)}
-        />
+        <MyHeader />
+        <div className="container">
+          <div className="mt-4">
+            <p>{message}</p>
+            <Board
+              squares={squares}
+              boardSize={boardSize}
+              onClick={(i, j) => this.handleClick(i, j)}
+            />
+          </div>`
+        </div>
       </div>
     )
   }
