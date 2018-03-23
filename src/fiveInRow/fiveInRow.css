@@ -10,6 +10,7 @@
 
 .piece {
   border: 0;
+  outline:none!important;
   display: inline-block;
   cursor: pointer;
   float: left;
@@ -22,60 +23,66 @@
   background-image: url(piece.png);
 }
 
-.pieceNormal {
+.piece-normal {
   background-position: -40px -40px;
 }
 
-.pieceTop {
+.piece-top {
   background-position: -40px -10px;
 }
 
-.pieceBottom {
+.piece-bottom {
   background-position: -40px -70px;
 }
 
-.pieceLeft {
+.piece-left {
   background-position: -10px -40px;
 }
 
-.pieceRight {
+.piece-right {
   background-position: -130px -40px;
 }
 
-.pieceLeftTop {
+.piece-left-top {
   background-position: -10px -10px;
 }
 
-.pieceRightTop {
+.piece-right-top {
   background-position: -130px -10px;
 }
 
-.pieceLeftBottom {
+.piece-left-bottom {
   background-position: -10px -70px;
 }
 
-.pieceRightBottom {
+.piece-right-bottom {
   background-position: -130px -70px;
 }
 
-.spanNone {
-  display: none;
-}
-
-.spanBlack {
-  display: block;
+.span-black {
+  display: inline-block;
   width: 80%;
   height: 80%;
+  margin: 10%;
   border-radius: 50%;
   background-color: black;
   box-shadow: .01rem .01rem .1rem rgba(0, 0, 0, .5), 0 0 .05rem rgba(240, 240, 240, .5), .05rem .05rem .01rem rgba(255, 255, 255, .15) inset, .1rem .1rem .1rem rgba(255, 255, 255, .05) inset, -.05rem -.05rem .25rem rgba(0, 0, 0, .15) inset, -.1rem -.1rem .35rem rgba(0, 0, 0, .05) inset;
 }
 
-.spanWhite {
-  display: block;
+.span-white {
+  display: inline-block;
   width: 80%;
   height: 80%;
+  margin: 10%;
   border-radius: 50%;
   background-color: white;
   box-shadow: .01rem .01rem .1rem rgba(0, 0, 0, .5), 0 0 .05rem rgba(240, 240, 240, .5), .05rem .05rem .01rem rgba(255, 255, 255, .15) inset, .1rem .1rem .1rem rgba(255, 255, 255, .05) inset, -.05rem -.05rem .25rem rgba(0, 0, 0, .15) inset, -.1rem -.1rem .35rem rgba(0, 0, 0, .05) inset;
+}
+
+.span-focus {
+  display: block;
+  width: 20%;
+  height: 20%;
+  margin: 40%;
+  background-color: red;
 }

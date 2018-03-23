@@ -10,9 +10,9 @@ export class MyHeader extends React.Component {
           <div className="container">
             <a className="navbar-brand text-secondary text-left font-weight-bold" href="/">Home</a>
             <div className="collapse navbar-collapse">
-              <a className="navbar-brand text-secondary text-left nav-item" href="/game-tool">Card Distributor</a>
+              <a className="navbar-brand text-secondary text-left nav-item" href="/game-tool">Card-Distributor</a>
               <a className="navbar-brand text-secondary text-left" href="movie-quotes">Movie</a>
-              <a className="navbar-brand text-secondary text-left" href="/five-in-row">Five in row</a>
+              <a className="navbar-brand text-secondary text-left" href="/five-in-row">Five-in-row</a>
             </div>
           </div>
         </nav>
