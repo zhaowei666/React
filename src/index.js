@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import createHistory from 'history/createBrowserHistory';
 import { Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom'
-import './index.css';
-import Game from './game';
-import MovieQuotes from './movieQuotes';
-import CardDistributor from './gameTool';
+import './ticTacToe/game.css';
+import Game from './ticTacToe/game';
+import MovieQuotes from './movieQuotes/movieQuotes';
+import CardDistributor from './gameTool/gameTool';
 import FiveInRow from './fiveInRow/fiveInRow';
-import {MyHeader} from './base';
+import {MyHeader} from './header/header';
 
 
 const history = createHistory();

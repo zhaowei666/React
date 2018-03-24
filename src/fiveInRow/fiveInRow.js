@@ -1,5 +1,5 @@
 import React from 'react';
-import {MyHeader} from '../base';
+import {MyHeader} from '../header/header';
 import 'bootstrap/dist/css/bootstrap.css';
 import './fiveInRow.css';
 

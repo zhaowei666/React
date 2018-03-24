@@ -1,8 +1,8 @@
 import React from 'react';
-import {MyHeader} from './base';
+import {MyHeader} from '../header/header';
 import 'bootstrap/dist/css/bootstrap.css';
-import './index.css';
-import {API_KEY} from './const';
+import './gameTool.css';
+import {API_KEY} from '../const';
 
 
 export default class CardDistributor extends React.Component{

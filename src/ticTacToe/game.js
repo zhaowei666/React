@@ -1,7 +1,7 @@
 import React from 'react';
-import './index.css';
+import {MyHeader} from "../header/header"
 import 'bootstrap/dist/css/bootstrap.css';
-import {MyHeader} from "./base"
+import './game.css';
 
 class Game extends React.Component{
   componentWillMount() {

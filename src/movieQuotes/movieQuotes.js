@@ -1,6 +1,7 @@
 import React from 'react'
+import {MyHeader} from "../header/header";
 import 'bootstrap/dist/css/bootstrap.css';
-import {MyHeader} from "./base";
+import './movieQuotes.css';
 
 class MovieQuotes extends React.Component{
   componentWillMount() {
